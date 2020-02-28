@@ -11,6 +11,22 @@
 					</Toolbar>
 				</subHeader>
 				<content>
+					<ComboBox 
+					items="{/suggestions}">
+						<sports:SportsItem key="{id}"
+						firstName="{firstName}"
+						lastName="{lastName}"
+						team="{team}"
+						pictureURL="{pictureURL}" />
+					</ComboBox>
+					<MultiComboBox 
+					items="{/suggestions}">
+						<sports:SportsItem key="{id}"
+						firstName="{firstName}"
+						lastName="{lastName}"
+						team="{team}"
+						pictureURL="{pictureURL}" />
+					</MultiComboBox>
 					<Input class="todoInput"
 						id="addTodoItemInput"
 						value="{/newTodo}"

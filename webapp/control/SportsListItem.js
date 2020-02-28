@@ -160,9 +160,10 @@ sap.ui.define([
 		return this.getFirstName() + " " + this.getLastName();
 	};
 
-	PersonListItem.prototype.getEnabled = function () {
-		return false;
-	};
+    // ????
+	// PersonListItem.prototype.getEnabled = function () {
+	// 	return false;
+	// };
 
 	return PersonListItem;
 });
