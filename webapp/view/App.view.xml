@@ -1,4 +1,4 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sap.ui.demo.todo.controller.App" displayBlock="true">
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:sports="sap.ui.demo.todo.control" controllerName="sap.ui.demo.todo.controller.App" displayBlock="true">
 	<Shell>
 		<App>
 			<Page title="{i18n>TITLE}" backgroundDesign="List">
@@ -19,13 +19,15 @@
 						showSuggestion="true"
 						suggestionItems="{/suggestions}">
 						<suggestionItems>
-							<!-- <sports:SportsItem key="{id}"
-								text="{name}"
-								imageUrl="{imageUrl}" /> -->
-							<SuggestionItem key="{id}"
+							<sports:SportsItem key="{id}"
+							text="{firstName} {lastName}"
+								firstName="{firstName}"
+								lastName="{lastName}"
+								pictureURL="{pictureURL}" />
+							<!-- <SuggestionItem key="{id}"
 								text="{name}"
 								description="{team}"
-								icon="{imageUrl}" />
+								icon="{pictureURL}" /> -->
 						</suggestionItems>
 					</Input>
 					<List id="todoList"

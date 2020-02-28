@@ -15,21 +15,24 @@
 	"suggestions": [
 		{
 			"id": 1,
-			"name": "Lionel Messi",
+			"firstName": "Lionel",
+			"lastName": "Messi",
 			"team": "FC Barcelona",
-			"imageUrl": "https://banner2.cleanpng.com/20180329/wow/kisspng-lionel-messi-2018-fifa-world-cup-argentina-nationa-portrait-5abd44879ba791.1722441615223532876376.jpg"
+			"pictureURL": "https://banner2.cleanpng.com/20180329/wow/kisspng-lionel-messi-2018-fifa-world-cup-argentina-nationa-portrait-5abd44879ba791.1722441615223532876376.jpg"
 		},
 		{
 			"id": 2,
-			"name": "Lionel Messi",
+			"firstName": "Lionel",
+			"lastName": "Messi",
 			"team": "FC Barcelona",
-			"imageUrl": "https://banner2.cleanpng.com/20180329/wow/kisspng-lionel-messi-2018-fifa-world-cup-argentina-nationa-portrait-5abd44879ba791.1722441615223532876376.jpg"
+			"pictureURL": "https://banner2.cleanpng.com/20180329/wow/kisspng-lionel-messi-2018-fifa-world-cup-argentina-nationa-portrait-5abd44879ba791.1722441615223532876376.jpg"
 		},
 		{
 			"id": 3,
-			"name": "Lionel Messi",
+			"firstName": "Lionel",
+			"lastName": "Messi",
 			"team": "FC Barcelona",
-			"imageUrl": "https://banner2.cleanpng.com/20180329/wow/kisspng-lionel-messi-2018-fifa-world-cup-argentina-nationa-portrait-5abd44879ba791.1722441615223532876376.jpg"
+			"pictureURL": "https://banner2.cleanpng.com/20180329/wow/kisspng-lionel-messi-2018-fifa-world-cup-argentina-nationa-portrait-5abd44879ba791.1722441615223532876376.jpg"
 		}
 	]
 }

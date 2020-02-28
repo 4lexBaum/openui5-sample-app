@@ -5,12 +5,14 @@ sap.ui.define([
 	"sap/m/Input",
 	"sap/m/StandardListItem",
 	"sap/m/GroupHeaderListItem",
-	"sap/m/DisplayListItem"
+	"sap/m/DisplayListItem",
+	"./control/SportsListItem"
 ], function (
 	Input,
 	StandardListItem,
 	GroupHeaderListItem,
-	DisplayListItem) {
+	DisplayListItem,
+	SportsListItem) {
 	"use strict";
 
 	const UI5Enhancements = {};
@@ -56,13 +58,21 @@ sap.ui.define([
 					oListItem = new DisplayListItem(oItem.getId() + "-dli");
 					oListItem.setLabel(oItem.getText());
 					oListItem.setValue(oItem.getAdditionalText());
-				} else if (aItems[i].isA("sap.ui.demo.todo.controls.SportsItem")) {
-					/* Sports Item -> sap.StandardListItem */
-					oListItem = new StandardListItem(oItem.getId() + "-sli");
-					oListItem.setTitle(oItem.getText());
-					oListItem.setIcon(oItem.getImageUrl());
+				// } else if (aItems[i].isA("sap.ui.demo.todo.controls.SportsItem")) {
+				// 	/* Sports Item -> sap.m.StandardListItem */
+				// 	oListItem = new StandardListItem(oItem.getId() + "-sli");
+				// 	oListItem.setTitle(`${oItem.getFirstName()} ${oItem.getLastName()}`);
+				// 	oListItem.setIcon(oItem.getPictureURL());
+				} else if (aItems[i].isA("sap.ui.demo.todo.control.SportsItem")) {
+					debugger;
+					/* Sports Item -> Sports List Item */
+					oListItem = new SportsListItem(oItem.getId() + "-sportsli");
+					oListItem.setFirstName(oItem.getFirstName());
+					oListItem.setLastName(oItem.getLastName());
+					oListItem.setTeam(oItem.getTeam());
+					oListItem.setPictureURL(oItem.getPictureURL());
 				} else if (aItems[i].isA("sap.m.SuggestionItem")) {
-					/* sap.m.SuggestionItem -> sap.StandardListItem */
+					/* sap.m.SuggestionItem -> sap.m.StandardListItem */
 					oListItem = new StandardListItem(oItem.getId() + "-sli");
 					oListItem.setTitle(oItem.getText());
 					oListItem.setIcon(oItem.getIcon());
