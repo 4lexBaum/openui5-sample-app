@@ -11,7 +11,23 @@
 					</Toolbar>
 				</subHeader>
 				<content>
-					<Input class="todoInput" id="addTodoItemInput" value="{/newTodo}" placeholder="{i18n>INPUT_PLACEHOLDER}" change=".addTodo"/>
+					<Input class="todoInput"
+						id="addTodoItemInput"
+						value="{/newTodo}"
+						placeholder="{i18n>INPUT_PLACEHOLDER}"
+						change=".addTodo"
+						showSuggestion="true"
+						suggestionItems="{/suggestions}">
+						<suggestionItems>
+							<!-- <sports:SportsItem key="{id}"
+								text="{name}"
+								imageUrl="{imageUrl}" /> -->
+							<SuggestionItem key="{id}"
+								text="{name}"
+								description="{team}"
+								icon="{imageUrl}" />
+						</suggestionItems>
+					</Input>
 					<List id="todoList"
 						items="{ path: '/todos', events: { change: '.updateItemsLeftCount' } }"
 						mode="MultiSelect"

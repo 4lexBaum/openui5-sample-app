@@ -1,6 +1,7 @@
 {
 	"newTodo": "",
-	"todos": [{
+	"todos": [
+		{
 			"title": "Start this app",
 			"completed": true
 		},
@@ -10,5 +11,25 @@
 		}
 	],
 	"itemsRemovable": true,
-	"completedCount": 1
+	"completedCount": 1,
+	"suggestions": [
+		{
+			"id": 1,
+			"name": "Lionel Messi",
+			"team": "FC Barcelona",
+			"imageUrl": "https://banner2.cleanpng.com/20180329/wow/kisspng-lionel-messi-2018-fifa-world-cup-argentina-nationa-portrait-5abd44879ba791.1722441615223532876376.jpg"
+		},
+		{
+			"id": 2,
+			"name": "Lionel Messi",
+			"team": "FC Barcelona",
+			"imageUrl": "https://banner2.cleanpng.com/20180329/wow/kisspng-lionel-messi-2018-fifa-world-cup-argentina-nationa-portrait-5abd44879ba791.1722441615223532876376.jpg"
+		},
+		{
+			"id": 3,
+			"name": "Lionel Messi",
+			"team": "FC Barcelona",
+			"imageUrl": "https://banner2.cleanpng.com/20180329/wow/kisspng-lionel-messi-2018-fifa-world-cup-argentina-nationa-portrait-5abd44879ba791.1722441615223532876376.jpg"
+		}
+	]
 }
