@@ -1,10 +1,10 @@
 ![OpenUI5 logo](http://openui5.org/images/OpenUI5_new_big_side.png)
 
 # openui5-sample-app
-> [OpenUI5](https://github.com/SAP/openui5) sample app using the [UI5 Build and Development Tooling](https://github.com/SAP/ui5-tooling).
+> [OpenUI5](https://github.com/SAP/openui5) sample app using the [UI5 Tooling](https://github.com/SAP/ui5-tooling).
 
 ## Prerequisites
-- The **UI5 CLI** of the [UI5 Build and Development Tooling](https://github.com/SAP/ui5-tooling#installing-the-ui5-cli).
+- The **UI5 CLI** of the [UI5 Tooling](https://github.com/SAP/ui5-tooling#installing-the-ui5-cli).
     - For installation instructions please see: [Installing the UI5 CLI](https://github.com/SAP/ui5-tooling#installing-the-ui5-cli).
 
 ## Getting started
@@ -24,15 +24,15 @@
     ```
 
 ## Testing
-* Run ESLint code validation
+* Run [ESLint](https://eslint.org/) code validation
     ```sh
     npm run lint
     ```
-* Start a local server and execute the tests automatically after every change
+* Start the [Karma Test Runner](https://karma-runner.github.io/latest/index.html) with the [UI5 Plugin](https://github.com/SAP/karma-ui5) and execute the tests automatically after every change
     ```sh
     npm run watch
     ```
-* Run ESLint, start a local server and run the tests in CI mode
+* Run both ESLint and Karma in CI mode
     ```sh
     npm test
     ```
@@ -43,16 +43,12 @@
     ui5 build -a
     ```
 1. Run the result
-    1. Install an HTTP server like [zeit/serve](https://www.npmjs.com/package/serve) (**Note:** You can use any HTTP server. If you use zeit/serve, please use version 6 as gzip support has been removed in newer versions.)
+    1. Run a local HTTP server on the build results (`/dist` directory)  
+	(**Note:** This script is using the [local-web-server](https://www.npmjs.com/package/local-web-server) npm module, but you can use any HTTP server for that)
         ```sh
-        # Install zeit/serve
-        npm install --global serve@6
+        npm run serve-dist
         ```
-    1. Start an HTTP server for the newly created `/dist` directory
-        ```sh
-        serve ./dist
-        ```
-    1. Open the app at http://localhost:5000/index.html
+    1. Open the app at http://localhost:8000
 
 ### Option 2: Self-contained build
 1. (Optional) Remove previous build results
@@ -64,33 +60,29 @@
     ui5 build self-contained -a
     ```
 1. Run the result
-    1. Install an HTTP server like [zeit/serve](https://www.npmjs.com/package/serve) (**Note:** You can use any HTTP server. If you use zeit/serve, please use version 6 as gzip support has been removed in newer versions.)
+    1. Run a local HTTP server on the build results (`/dist` directory)  
+	(**Note:** This script is using the [local-web-server](https://www.npmjs.com/package/local-web-server) npm module, but you can use any HTTP server for that)
         ```sh
-        # Install zeit/serve in version 6, as gzip support has been removed in newer versions
-        npm install --global serve@6
+        npm run serve-dist
         ```
-    1. Start an HTTP server for the newly created `/dist` directory
-        ```sh
-        serve ./dist
-        ```
-    1. Open the app at http://localhost:5000/index-self-contained.html (Note the different path)
+    1. Open the app at http://localhost:8000
 
 ## Working with local dependencies
 
-For local development of your applications' dependencies (like OpenUI5 libraries) you can link them by using Yarn. This will allow you to make changes to your applications dependencies locally and the impact in your application immediately.
+For local development of your applications' dependencies (like OpenUI5 libraries) you can link them by using Yarn. This will allow you to make changes to your applications dependencies locally and see the impact in your application immediately.
 
-**Note:** Currently only Yarn understands the [workspace](https://yarnpkg.com/lang/en/docs/workspaces/) package setting used in the OpenUI5 repository. If you do not plan to work with OpenUI5 you might as well use npm. But keep in mind that linking the same module with npm and Yarn might lead to issues. Also, Yarn can't work with links created by npm and vice versa. See [FAQ: What's the thing with yarn?](https://github.com/SAP/ui5-tooling#whats-the-thing-with-yarn) for details.
+**Note:** Currently only Yarn understands the [workspace](https://yarnpkg.com/lang/en/docs/workspaces/) package setting used in the OpenUI5 repository. If you do not plan to work with OpenUI5 you might as well use npm. But keep in mind that linking the same module with npm and Yarn might lead to issues. Also, Yarn can't work with links created by npm and vice versa. See [FAQ: What's the thing with yarn?](https://sap.github.io/ui5-tooling/pages/FAQ/#whats-the-thing-with-yarn) for details.
 
 ### Prerequisites
 
-- [Yarn](https://yarnpkg.com/en/docs/install) (**version must be 1.0 or higher**)
+- [Yarn](https://yarnpkg.com/en/docs/install) (**version must be 1.x**)
     - *Note that you can use npm instead of Yarn if you do not plan to work with a local copy of the [OpenUI5 main repository](https://github.com/SAP/openui5). See [FAQ: What's the thing with yarn?](https://github.com/SAP/ui5-tooling#whats-the-thing-with-yarn)*
 
 ### Preparation
 The following needs to be done just once per setup.
 
 1. Clone the OpenUI5 repository and navigate into it
-    **Note:** The UI5 version must be 1.52.5 or higher, you can check that in the root `package.json` file
+    **Note:** The UI5 version must be 1.65.0 or higher, you can check that in the root `package.json` file
     ```sh
     git clone https://github.com/SAP/openui5.git
     cd openui5
@@ -109,7 +101,7 @@ The following needs to be done just once per setup.
     ```sh
     yarn link @openui5/sap.ui.core
     yarn link @openui5/sap.m
-    yarn link @openui5/themelib_sap_belize
+    yarn link @openui5/themelib_sap_fiori_3
     ```
 
 You can now make changes in your local OpenUI5 repository and see the impact directly when serving or building your application.
@@ -121,7 +113,7 @@ To return to using the OpenUI5 npm packages
     ```sh
     yarn unlink @openui5/sap.ui.core
     yarn unlink @openui5/sap.m
-    yarn unlink @openui5/themelib_sap_belize
+    yarn unlink @openui5/themelib_sap_fiori_3
     ```
 1. Re-install the packages from the registry
     ```sh

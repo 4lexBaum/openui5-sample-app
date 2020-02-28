@@ -1,12 +1,11 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"sap/ui/model/json/JSONModel",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator"
-], function(Controller, JSONModel, Filter, FilterOperator) {
-	'use strict';
+], function(Controller, Filter, FilterOperator) {
+	"use strict";
 
-	return Controller.extend('sap.ui.demo.todo.controller.App', {
+	return Controller.extend("sap.ui.demo.todo.controller.App", {
 
 		onInit: function() {
 			this.aSearchFilters = [];
@@ -18,15 +17,15 @@ sap.ui.define([
 		 */
 		addTodo: function() {
 			var oModel = this.getView().getModel();
-			var aTodos = jQuery.extend(true, [], oModel.getProperty('/todos'));
+			var aTodos = oModel.getProperty("/todos").map(function (oTodo) { return Object.assign({}, oTodo); });
 
 			aTodos.push({
-				title: oModel.getProperty('/newTodo'),
+				title: oModel.getProperty("/newTodo"),
 				completed: false
 			});
 
-			oModel.setProperty('/todos', aTodos);
-			oModel.setProperty('/newTodo', '');
+			oModel.setProperty("/todos", aTodos);
+			oModel.setProperty("/newTodo", "");
 		},
 
 		/**
@@ -34,7 +33,7 @@ sap.ui.define([
 		 */
 		clearCompleted: function() {
 			var oModel = this.getView().getModel();
-			var aTodos = jQuery.extend(true, [], oModel.getProperty('/todos'));
+			var aTodos = oModel.getProperty("/todos").map(function (oTodo) { return Object.assign({}, oTodo); });
 
 			var i = aTodos.length;
 			while (i--) {
@@ -44,7 +43,7 @@ sap.ui.define([
 				}
 			}
 
-			oModel.setProperty('/todos', aTodos);
+			oModel.setProperty("/todos", aTodos);
 		},
 
 		/**
@@ -52,13 +51,13 @@ sap.ui.define([
 		 */
 		updateItemsLeftCount: function() {
 			var oModel = this.getView().getModel();
-			var aTodos = oModel.getProperty('/todos') || [];
+			var aTodos = oModel.getProperty("/todos") || [];
 
 			var iItemsLeft = aTodos.filter(function(oTodo) {
 				return oTodo.completed !== true;
 			}).length;
 
-			oModel.setProperty('/itemsLeftCount', iItemsLeft);
+			oModel.setProperty("/itemsLeftCount", iItemsLeft);
 		},
 
 		/**
@@ -74,23 +73,22 @@ sap.ui.define([
 			// add filter for search
 			var sQuery = oEvent.getSource().getValue();
 			if (sQuery && sQuery.length > 0) {
-				oModel.setProperty('/itemsRemovable', false);
+				oModel.setProperty("/itemsRemovable", false);
 				var filter = new Filter("title", FilterOperator.Contains, sQuery);
 				this.aSearchFilters.push(filter);
 			} else {
-				oModel.setProperty('/itemsRemovable', true);
+				oModel.setProperty("/itemsRemovable", true);
 			}
 
 			this._applyListFilters();
 		},
 
 		onFilter: function(oEvent) {
-
 			// First reset current filters
 			this.aTabFilters = [];
 
 			// add filter for search
-			var sFilterKey = oEvent.getParameter("key");
+			var sFilterKey = oEvent.getParameter("item").getKey();
 
 			// eslint-disable-line default-case
 			switch (sFilterKey) {

@@ -7,27 +7,26 @@
     "start": "ui5 serve",
     "lint": "eslint webapp",
     "karma": "karma start",
-    "karma-ci": "karma start karma-ci.conf.js",
-    "watch": "start-server-and-test start http://localhost:8080 karma",
-    "test": "npm run lint && rimraf coverage && start-server-and-test start http://localhost:8080 karma-ci",
-    "build": "rimraf dist && ui5 build --a"
+    "karma-ci": "rimraf coverage && karma start karma-ci.conf.js",
+    "watch": "npm run karma",
+    "test": "npm run lint && npm run karma-ci",
+    "build": "ui5 build -a --clean-dest",
+    "build-self-contained": "ui5 build self-contained -a --clean-dest",
+    "serve-dist": "ws --compress -d dist"
   },
   "dependencies": {
-    "@openui5/sap.m": "^1.52.5",
-    "@openui5/sap.ui.core": "^1.52.5",
-    "@openui5/themelib_sap_belize": "^1.52.5"
+    "@openui5/sap.m": "^1.74.0",
+    "@openui5/sap.ui.core": "^1.74.0",
+    "@openui5/themelib_sap_fiori_3": "^1.74.0"
   },
   "devDependencies": {
-    "@ui5/cli": "^0.2.1",
-    "eslint": "^4.19.1",
-    "karma": "^2.0.2",
-    "karma-chrome-launcher": "^2.2.0",
-    "karma-coverage": "^1.1.2",
-    "karma-openui5": "^0.2.3",
-    "karma-phantomjs-launcher": "^1.0.4",
-    "karma-qunit": "^1.2.1",
-    "qunitjs": "^2.4.1",
-    "rimraf": "^2.6.2",
-    "start-server-and-test": "^1.4.1"
+    "@ui5/cli": "^1.14.0",
+    "eslint": "^5.16.0",
+    "karma": "^4.4.1",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-coverage": "^2.0.1",
+    "karma-ui5": "^1.1.0",
+    "local-web-server": "^3.0.7",
+    "rimraf": "^3.0.2"
   }
 }
