@@ -64,7 +64,6 @@ sap.ui.define([
 				// 	oListItem.setTitle(`${oItem.getFirstName()} ${oItem.getLastName()}`);
 				// 	oListItem.setIcon(oItem.getPictureURL());
 				} else if (aItems[i].isA("sap.ui.demo.todo.control.SportsItem")) {
-					debugger;
 					/* Sports Item -> Sports List Item */
 					oListItem = new SportsListItem(oItem.getId() + "-sportsli");
 					oListItem.setFirstName(oItem.getFirstName());

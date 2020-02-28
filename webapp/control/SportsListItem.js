@@ -57,7 +57,7 @@ sap.ui.define([
 				toolIcon: {
 					type: "sap.ui.core.URI",
 					group: "Appearance",
-					defaultValue: "sap-icon://sap-sports/icon-calendar"
+					defaultValue: "sap-icon://calendar"
 				},
 				selectMode: {
 					type: "boolean",
@@ -128,26 +128,6 @@ sap.ui.define([
 
 		ListItemBase.prototype.init.apply(this, arguments);
 
-		this.setAggregation("_selectIcon", new Icon({
-			src: "sap-icon://sap-sports/icon-checkmark"
-		}));
-
-		this.setAggregation("_dedupIcon", new Icon({
-			src: "sap-icon://sap-sports/icon-dedup"
-		}));
-
-		this.setAggregation("_deleteIcon", new Icon({
-			src: "sap-icon://sap-sports/icon-cancel",
-			press: [
-				this.fireItemDeleted, this
-			]
-		}));
-
-		this.setAggregation("_toolIcon", new Icon({
-			press: [
-				this.fireItemToolPress, this
-			]
-		}));
 	};
 
 	/**
@@ -156,13 +136,13 @@ sap.ui.define([
 	PersonListItem.prototype.getContentAnnouncement = function () {
 	};
 
-	PersonListItem.prototype.setToolIcon = function (sUri) {
-		return this.getAggregation("_toolIcon").setSrc(sUri);
-	};
+	// PersonListItem.prototype.setToolIcon = function (sUri) {
+	// 	return this.getAggregation("_toolIcon").setSrc(sUri);
+	// };
 
-	PersonListItem.prototype.getToolIcon = function () {
-		return this.getAggregation("_toolIcon").getSrc();
-	};
+	// PersonListItem.prototype.getToolIcon = function () {
+	// 	return this.getAggregation("_toolIcon").getSrc();
+	// };
 
 	PersonListItem.prototype.exit = function () {
 		if (this.deleteIcon) {

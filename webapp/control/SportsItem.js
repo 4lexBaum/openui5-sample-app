@@ -30,6 +30,9 @@ sap.ui.define([
             console.log(">>>>>>>>>>>>>>>");
             console.log("I'm a sports item :)");
             console.log("<<<<<<<<<<<<<<<");
+        },
+        getText: function() {
+            return `${this.getFirstName()} ${this.getLastName()}`
         }
     });
 });

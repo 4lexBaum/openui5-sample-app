@@ -20,9 +20,9 @@
 						suggestionItems="{/suggestions}">
 						<suggestionItems>
 							<sports:SportsItem key="{id}"
-							text="{firstName} {lastName}"
 								firstName="{firstName}"
 								lastName="{lastName}"
+								team="{team}"
 								pictureURL="{pictureURL}" />
 							<!-- <SuggestionItem key="{id}"
 								text="{name}"
